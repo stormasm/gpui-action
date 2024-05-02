@@ -14,7 +14,7 @@ pub struct FocusStory {
 }
 
 impl FocusStory {
-    pub fn new(cx: &mut ViewContext) -> View<Self> {
+    pub fn new(cx: &mut ViewContext<FocusStory>) -> FocusStory {
         cx.bind_keys([
             KeyBinding::new("cmd-a", ActionA, Some("parent")),
             KeyBinding::new("cmd-a", ActionB, Some("child-1")),
@@ -46,7 +46,7 @@ impl FocusStory {
                 }),
             ];
 
-            Self {
+            FocusStory {
                 parent_focus,
                 child_1_focus,
                 child_2_focus,

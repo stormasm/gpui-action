@@ -21,38 +21,36 @@ impl FocusStory {
             KeyBinding::new("cmd-c", ActionC, None),
         ]);
 
-        cx.new_view(move |cx| {
-            let parent_focus = cx.focus_handle();
-            let child_1_focus = cx.focus_handle();
-            let child_2_focus = cx.focus_handle();
-            let _focus_subscriptions = vec![
-                cx.on_focus(&parent_focus, |_, _| {
-                    println!("Parent focused");
-                }),
-                cx.on_blur(&parent_focus, |_, _| {
-                    println!("Parent blurred");
-                }),
-                cx.on_focus(&child_1_focus, |_, _| {
-                    println!("Child 1 focused");
-                }),
-                cx.on_blur(&child_1_focus, |_, _| {
-                    println!("Child 1 blurred");
-                }),
-                cx.on_focus(&child_2_focus, |_, _| {
-                    println!("Child 2 focused");
-                }),
-                cx.on_blur(&child_2_focus, |_, _| {
-                    println!("Child 2 blurred");
-                }),
-            ];
+        let parent_focus = cx.focus_handle();
+        let child_1_focus = cx.focus_handle();
+        let child_2_focus = cx.focus_handle();
+        let _focus_subscriptions = vec![
+            cx.on_focus(&parent_focus, |_, _| {
+                println!("Parent focused");
+            }),
+            cx.on_blur(&parent_focus, |_, _| {
+                println!("Parent blurred");
+            }),
+            cx.on_focus(&child_1_focus, |_, _| {
+                println!("Child 1 focused");
+            }),
+            cx.on_blur(&child_1_focus, |_, _| {
+                println!("Child 1 blurred");
+            }),
+            cx.on_focus(&child_2_focus, |_, _| {
+                println!("Child 2 focused");
+            }),
+            cx.on_blur(&child_2_focus, |_, _| {
+                println!("Child 2 blurred");
+            }),
+        ];
 
-            FocusStory {
-                parent_focus,
-                child_1_focus,
-                child_2_focus,
-                _focus_subscriptions,
-            }
-        })
+        FocusStory {
+            parent_focus,
+            child_1_focus,
+            child_2_focus,
+            _focus_subscriptions,
+        }
     }
 }
 

@@ -11,16 +11,9 @@ fn main() {
         cx.on_action(|_: &Quit, cx| cx.quit());
         cx.bind_keys([KeyBinding::new("cmd-q", Quit, None)]);
 
+        let bounds = Bounds::centered(None, size(px(600.0), px(600.0)), cx);
         let window_options = WindowOptions {
-            titlebar: Some(TitlebarOptions {
-                title: Some(SharedString::from("Kallax")),
-                appears_transparent: true,
-                ..Default::default()
-            }),
-            bounds: Some(Bounds {
-                size: size(px(800.), px(600.)).into(),
-                ..Default::default()
-            }),
+            bounds: Some(bounds),
             ..Default::default()
         };
 

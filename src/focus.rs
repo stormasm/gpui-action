@@ -1,6 +1,5 @@
 use gpui::{
-    actions, div, prelude::*, FocusHandle, Hsla, KeyBinding, Render, Subscription, View,
-    ViewContext,
+    actions, div, prelude::*, FocusHandle, Hsla, KeyBinding, Render, Subscription, ViewContext,
 };
 use gpui::{black, blue, green, red, yellow};
 

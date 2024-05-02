@@ -1,6 +1,6 @@
 use gpui::{
     actions, div, prelude::*, FocusHandle, Hsla, KeyBinding, Render, Subscription, View,
-    WindowContext,
+    ViewContext,
 };
 use gpui::{black, blue, green, red, yellow};
 
@@ -14,7 +14,7 @@ pub struct FocusStory {
 }
 
 impl FocusStory {
-    pub fn view(cx: &mut WindowContext) -> View<Self> {
+    pub fn new(cx: &mut ViewContext) -> View<Self> {
         cx.bind_keys([
             KeyBinding::new("cmd-a", ActionA, Some("parent")),
             KeyBinding::new("cmd-a", ActionB, Some("child-1")),

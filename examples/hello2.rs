@@ -1,22 +1,26 @@
 use gpui::*;
 
 struct HelloWorld {
+    focus: FocusHandle,
     text: SharedString,
 }
 
 actions!(ford, [Quit]);
 
 impl HelloWorld {
-    pub fn new(_cx: &mut ViewContext<HelloWorld>) -> HelloWorld {
+    pub fn new(cx: &mut ViewContext<HelloWorld>) -> HelloWorld {
+        let focus = cx.focus_handle();
         let text = SharedString::from("World");
-        HelloWorld { text }
+        HelloWorld { focus, text }
     }
 }
 
 impl Render for HelloWorld {
     fn render(&mut self, _cx: &mut ViewContext<Self>) -> impl IntoElement {
         div()
-            .flex()
+            .id("hello")
+            .active(|style| style.bg(red()))
+            .track_focus(&self.focus)
             .bg(rgb(0x2e7d32))
             .size(Length::Definite(Pixels(300.0).into()))
             .justify_center()

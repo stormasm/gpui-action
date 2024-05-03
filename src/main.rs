@@ -3,7 +3,7 @@ use gpui::*;
 mod focus;
 use focus::FocusStory;
 
-actions!(kallax, [Quit]);
+actions!(ford, [Quit]);
 
 fn main() {
     App::new().run(|cx| {

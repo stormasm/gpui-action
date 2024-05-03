@@ -21,6 +21,7 @@ impl Render for HelloWorld {
             .id("hello")
             .active(|style| style.bg(red()))
             .track_focus(&self.focus)
+            // if key_context is not here it doesn't quit
             .key_context("hello")
             .bg(rgb(0x2e7d32))
             .size(Length::Definite(Pixels(300.0).into()))
